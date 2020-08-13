@@ -1,6 +1,5 @@
-#coud-config
+#cloud-config
 hostname: k3os-t-master01
-  console: ubuntu
   network:
     interfaces:
       eth*:
