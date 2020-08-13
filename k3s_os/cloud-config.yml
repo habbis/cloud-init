@@ -1,4 +1,4 @@
 #cloud-config
 hostname: k3os-t-master01
 ssh_authorized_keys:
-- "github:habbis"
+- github:habbis
