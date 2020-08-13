@@ -1,4 +1,4 @@
-#coud-config
+#cloud-config
 
 hostname: rancher
 rancher:
