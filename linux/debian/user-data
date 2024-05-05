@@ -4,19 +4,22 @@ fqdn: temp
 package_upgrade: true
 users:
   - default
-  - name: youruser
+  - name: ansible
     shell: /bin/bash
     sudo: ALL=(ALL) NOPASSWD:ALL
     lock_passwd: false
     # to encrypt password mkpasswd -m sha-512
-    passwd: yourhash
+    passwd: $6$bA//Kbij7TBGFNxS$3T1h5iBDGA0r8cnnr7nwAEqx4SI.3VsWpfVG5c4/3aPsz500kPfB3SzDrNfcewsf.1CDHw8mWHrFtJnw0V7xk/
     ssh_authorized_keys:
-      -  yoursshkey
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjYH5jmAWqYBdMj11FMuXu8CVlaUJgKoJu4982kYmtx ebbestad@devkey
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApgMZF4rkwdLBoK6pjNx78hX2DnzJIw1Ez9VpBpAJaA ebbestad@bastion
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4WRrdsLVlqh/Fq6eFJHhLKLrAFwksD/XcszMPcQXlB dam@automation
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGCJ5z7dw8bTasOQbRw4eOF5zW0pf0AwlnQzHTUdkwGG eirik.habbestad.helleve@unityMac
   - name: nagios
     shell: /bin/bash
     sudo: false
     ssh_authorized_keys:
-      - yoursshkey
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO++Oov5ouNtRlhZcpaboOZ/lX+aRFEUZzTccYqJFp9V naemon@hf-moncore1.no.habbfarm.net
 # resize root files system
 # its best to setup server with filesystem not lvm when using this.
 resize_rootfs: true
@@ -132,10 +135,31 @@ write_files:
       leapsectz right/UTC
     owner: 'root:root'
     permissions: '0644'
-  - path: /usr/local/share/ca-certificates/yourcacertcrt
+  - path: /usr/local/share/ca-certificates/habbfarm.crt
     content: |
       -----BEGIN CERTIFICATE-----
-      yourcert
+      MIID/jCCAuagAwIBAgIIAh+VTf82Fi0wDQYJKoZIhvcNAQELBQAwWTEUMBIGA1UE
+      AxMLaW50ZXJuYWwtY2ExCzAJBgNVBAYTAk5PMREwDwYDVQQIEwhWZXN0bGFuZDEO
+      MAwGA1UEBxMFQm9tbG8xETAPBgNVBAoTCGhhYmJmYXJtMB4XDTIyMDYxMDE0NDMx
+      OVoXDTMyMDYwNzE0NDMxOVowWTEUMBIGA1UEAxMLaW50ZXJuYWwtY2ExCzAJBgNV
+      BAYTAk5PMREwDwYDVQQIEwhWZXN0bGFuZDEOMAwGA1UEBxMFQm9tbG8xETAPBgNV
+      BAoTCGhhYmJmYXJtMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzk2c
+      QWsYeqso2Nk5jnxaJymihoGiKB+EkGkkQHVoyrkrXn780wF2MjCKmV6QgbrVw/4Z
+      U+K4LXz6/L8M3MXu1z1Owu5GjzhCExtPsiopwCA9po4ljL/g6LrDdW/0qciUgCV8
+      s7oak5JMvmfH9sYcxLR8Xh1KNLf7q0Bv0BpQ03LJTMh3MPsPt3qzd9iod71PORNG
+      iT4fCgNCB6p4hT5lDT6kRzv++MJrCKgeedop1nrkfebpnUlpCLZAwr5sPE0+5Zgl
+      Zh7QYxN2LC80bZ9AyUe+C/PlS5hoKG63wTAn5GIO+gll5+Hw6TBisgVIR8S9bVmE
+      q7vlIMqk7u+FRz1R5wIDAQABo4HJMIHGMB0GA1UdDgQWBBRlyC8u44CGy1fDLnx1
+      uOGQMZPd/jCBiQYDVR0jBIGBMH+AFGXILy7jgIbLV8MufHW44ZAxk93+oV2kWzBZ
+      MRQwEgYDVQQDEwtpbnRlcm5hbC1jYTELMAkGA1UEBhMCTk8xETAPBgNVBAgTCFZl
+      c3RsYW5kMQ4wDAYDVQQHEwVCb21sbzERMA8GA1UEChMIaGFiYmZhcm2CCAIflU3/
+      NhYtMAwGA1UdEwQFMAMBAf8wCwYDVR0PBAQDAgEGMA0GCSqGSIb3DQEBCwUAA4IB
+      AQClgdRqlil2TH/eQTCixjLPTJS1TZIgXokN6DqE5Yfida/qHIQ2aJWWOanz/MvH
+      Vc/nFSpW/eG39EmzqTJrW+B3ewZ9Z5lOYc/MY3NDOe/aHdJ3jsFKqUaqHbq9RkFv
+      3ycTcuoTG7XJwZeaqnGlY6HiEIWLDZ+iC47VGdTQl311AC/M31KCrDmZo2wtj84m
+      E34XVNSXqgZZpk3hmqSjQfhtjlW67AesAxUIX4elAhxWEFCLHoZx2hvRhYxqOEx7
+      OUN9CIsEdM7ZGHXrb6G48sjP6EzF7uq83Ju4CoVwtJUGjPB281PGSmPBv5YTBoZ/
+      +YDT5B5vCwWjCFLm3dNK7eb8
       -----END CERTIFICATE-----
     owner: 'root:root'
     permissions: '0755'

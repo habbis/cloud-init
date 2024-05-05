@@ -5,11 +5,14 @@ config:
       name: enp1s0
       subnets:
       - type: static
-        address: '192.168.1.2'
-        netmask: '255.255.255.0'
-        gateway: '192.168.1.1'
+        address: 'tempip'
+        netmask: 'tempmask'
+        gateway: 'tempgate'
         dns_nameservers:
-          - 1.1.1.1
-          - 8.8.8.8
+          - 10.17.2.2
+          - 10.17.2.3
         dns_search:
-          - yourdomain.net
+          - no.habbfarm.net
+          - bo1.no.habbfarm.net
+          - bo2.no.habbfarm.net
+          - bo3.no.habbfarm.net
