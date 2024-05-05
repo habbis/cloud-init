@@ -1,2 +1,15 @@
 # cloud-init
-cloud-init for multiple os like [rancheros](https://rancher.com/rancher-os/) and [k3os](https://k3os.io/)
+cloud-init for multiple os.
+
+
+## Generate cloud-init iso
+
+First install  genisoimage.
+
+To generate.
+
+```
+genisoimage -output cloud-init.iso -V cidata -r -J meta-data user-data network-config
+```
+
+
