@@ -15,6 +15,7 @@ users:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApgMZF4rkwdLBoK6pjNx78hX2DnzJIw1Ez9VpBpAJaA ebbestad@bastion
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4WRrdsLVlqh/Fq6eFJHhLKLrAFwksD/XcszMPcQXlB dam@automation
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGCJ5z7dw8bTasOQbRw4eOF5zW0pf0AwlnQzHTUdkwGG eirik.habbestad.helleve@unityMac
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIIf60T4YaO5eqNr3aU9hRauSRvhl/JWtt7KhNd4a3PJ ebbestad@fedora-dev1
   - name: nagios
     shell: /bin/bash
     sudo: false
