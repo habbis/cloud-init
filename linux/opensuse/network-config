@@ -1,0 +1,18 @@
+#cloud-config
+version: 1
+config:
+    - type: physical
+      name: enp1s0
+      subnets:
+      - type: static
+        address: 'tempip'
+        netmask: 'tempmask'
+        gateway: 'tempgate'
+        dns_nameservers:
+          - 10.17.2.2
+          - 10.17.2.3
+        dns_search:
+          - no.habbfarm.net
+          - bo1.no.habbfarm.net
+          - bo2.no.habbfarm.net
+          - bo3.no.habbfarm.net
