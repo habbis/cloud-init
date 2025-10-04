@@ -137,7 +137,7 @@ write_files:
       leapsectz right/UTC
     owner: 'root:root'
     permissions: '0644'
-  - path: /usr/local/share/ca-certificates/habbfarm.crt
+  - path: /etc/pki/ca-trust/source/anchors/habbfarm.crt
     content: |
       -----BEGIN CERTIFICATE-----
       MIID/jCCAuagAwIBAgIIAh+VTf82Fi0wDQYJKoZIhvcNAQELBQAwWTEUMBIGA1UE
